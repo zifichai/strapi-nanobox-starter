@@ -1,0 +1,22 @@
+data.db:
+  image: 'nanobox/postgresql:9.5'
+run.config:
+  engine: nodejs
+  build_triggers:
+    - package.json
+  cache_dirs:
+    - node_modules
+    - admin/node_modules
+    - plugins/content-manager/node_modules
+    - plugins/content-type-builder/node_modules
+    - plugins/email/node_modules
+    - plugins/settings-manager/node_modules
+    - plugins/upload/node_modules
+    - plugins/users-permissions/node_modules
+  extra_packages:
+    - nodejs
+    - nginx
+web.main:
+  start:
+    nginx: nginx -c /app/config/nginx.conf
+    node: yarn start

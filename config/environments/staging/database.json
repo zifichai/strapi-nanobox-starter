@@ -1,0 +1,21 @@
+{
+  "defaultConnection": "default",
+  "connections": {
+    "default": {
+      "connector": "strapi-hook-bookshelf",
+      "settings": {
+        "client": "postgres",
+        "host": "${process.env.DATA_DB_HOST}",
+        "port": "5432",
+        "database": "gonano",
+        "username": "${process.env.DATA_DB_USER}",
+        "password": "${process.env.DATA_DB_PASS}",
+        "srv": "${process.env.DATABASE_SRV || false}"
+      },
+      "options": {
+        "authenticationDatabase": "${process.env.DATABASE_AUTHENTICATION_DATABASE || ''}",
+        "ssl": "${process.env.DATABASE_SSL || false}"
+      }
+    }
+  }
+}

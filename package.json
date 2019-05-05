@@ -1,0 +1,57 @@
+{
+  "name": "strapi-nanobox-starter",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A Strapi application.",
+  "main": "./server.js",
+  "scripts": {
+    "setup": "cd admin && yarn setup",
+    "beforedeploy": "node scripts/beforeDeploy.js",
+    "dry-run": "yarn beforedeploy && nanobox deploy dry-run",
+    "deploy": "yarn beforedeploy && nanobox deploy",
+    "start": "node server.js",
+    "dev": " concurrently \"nginx -c /app/config/nginx.conf\" \"yarn start\"",
+    "strapi": "node_modules/strapi/bin/strapi.js",
+    "lint": "node_modules/.bin/eslint api/**/*.js config/**/*.js plugins/**/*.js",
+    "postinstall": "node node_modules/strapi/lib/utils/post-install.js"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "concurrently": "^4.1.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-react": "^7.7.0",
+    "node-yaml": "^3.2.0"
+  },
+  "dependencies": {
+    "knex": "latest",
+    "lodash": "^4.17.5",
+    "pg": "7.10.0",
+    "strapi": "3.0.0-alpha.26.1",
+    "strapi-hook-bookshelf": "3.0.0-alpha.26.1",
+    "strapi-hook-knex": "3.0.0-alpha.26.1",
+    "strapi-utils": "3.0.0-alpha.26.1"
+  },
+  "author": {
+    "name": "Jeppe Smith",
+    "email": "mail@jeppesmith.dk",
+    "url": "https://jeppesmith.dk"
+  },
+  "maintainers": [
+    {
+      "name": "Jeppe Smith",
+      "email": "mail@jeppesmith.dk",
+      "url": "https://jeppesmith.dk"
+    }
+  ],
+  "strapi": {
+    "packageManager": "npm",
+    "uuid": "ad96ab65-05f0-40a0-84ec-977d1cc86197"
+  },
+  "engines": {
+    "node": ">= 10.0.0",
+    "npm": ">= 6.0.0"
+  },
+  "license": "MIT"
+}
